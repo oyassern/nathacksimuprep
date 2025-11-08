@@ -1,0 +1,13 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #FAFBFC;
+  color: #000000;
+  font-family: 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+}
+
+button, input {
+  font-family: inherit;
+}
