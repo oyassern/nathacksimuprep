@@ -1,63 +1,16 @@
-# MCQ Generator (Next.js + Supabase + OpenAI)
+# React + Vite
 
-A beginner-friendly Next.js app that generates multiple-choice questions using OpenAI and stores them in Supabase. Minimal code, no extra complexity.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
-- Generate MCQs for a topic via `/api/generate`.
-- Store questions in Supabase `questions` table.
-- List questions at `/questions`.
-- View/Edit/Delete a question at `/questions/[id]`.
+Currently, two official plugins are available:
 
-## Stack
-- Next.js App Router (JavaScript)
-- Supabase (Postgres via `@supabase/supabase-js`)
-- OpenAI (chat completions)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Setup
-1. Install deps:
-   - `npm install`
-2. Create `.env.local` from example:
-   - `cp .env.example .env.local`
-   - Fill:
-     - `OPENAI_API_KEY`
-     - `SUPABASE_URL`
-     - `SUPABASE_SERVICE_ROLE_KEY`
-3. Create table in Supabase (SQL):
-   ```sql
-   create table if not exists public.questions (
-     id uuid primary key default gen_random_uuid(),
-     topic text,
-     question_text text,
-     option_a text,
-     option_b text,
-     option_c text,
-     option_d text,
-     correct_option text check (correct_option in ('a','b','c','d')),
-     created_at timestamp with time zone default now()
-   );
-   -- For learning, you can keep RLS off initially:
-   alter table public.questions disable row level security;
-   ```
-4. Run the app:
-   - `npm run dev`
-   - Open `http://localhost:3000`
+## React Compiler
 
-## How it Works (Simple)
-- Client components call your own API routes (not Supabase directly).
-- API routes run on the server, use the Supabase service role key, and keep secrets safe.
-- `/api/generate` prompts OpenAI to return strict JSON, parses it, and inserts rows.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Files to Explore
-- `app/page.jsx`: Home with generate form
-- `app/questions/page.jsx`: List all questions
-- `app/questions/[id]/page.jsx`: View/edit/delete one
-- `app/api/generate/route.js`: Calls OpenAI and inserts into DB
-- `app/api/questions/route.js`: List
-- `app/api/questions/[id]/route.js`: Get/Update/Delete
-- `lib/supabaseAdmin.js`: Server Supabase client
+## Expanding the ESLint configuration
 
-## Notes
-- Keep the count small (1–5) to control token usage.
-- You can later switch to Supabase Auth + RLS and call Supabase from the client if you want to learn that pattern.
-
-# nathacksSimuprep
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
