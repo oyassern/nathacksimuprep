@@ -5,5 +5,4 @@ node_modules/
 npm-debug.log*
 pnpm-lock.yaml
 yarn.lock
-config.json
-src/data/config.json
+.env.local
