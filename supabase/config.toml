@@ -1,0 +1,35 @@
+## supabase/config.toml
+## Purpose:
+##   Configuration file for the Supabase CLI / local project metadata. This
+##   file helps the Supabase tooling (supabase CLI, local dev services) know
+##   which project and database settings to use when running commands from the
+##   repository root.
+##
+## Connected project files (this repo):
+##   - db/migrations/*        -> SQL migration files applied to the DB
+##   - db/seeds/initial_data.sql -> Seed data used for local/dev bootstrapping
+##   - .env.local             -> Environment variables (SUPABASE_* keys, DB conn)
+##   - scripts/apply-schema.js (optional) -> Script to apply SQL migrations
+##   - scripts/seed-questions.js (optional) -> Script to seed questions from JSON/TSV
+##
+## Usage notes:
+##   - Run `supabase login` from the project root to authenticate the CLI.
+##   - Use `supabase link --project-ref <project-id>` (or `supabase link`) to
+##     associate this repo with your Supabase project if needed.
+##   - The migrations and seeds directories listed above should be kept in
+##     version control; keep secrets (service role keys) only in `.env.local`.
+
+project_id = "nathacksimuprep"
+
+[api]
+schemas = ["public"]
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = []
+
+[db]
+major_version = 17
+
+[studio]
+port = 54323
