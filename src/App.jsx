@@ -8,6 +8,7 @@ import MCQPage from './pages/MCQPage';
 import SlidersPage from './pages/SlidersPage';
 import SummaryPage from './pages/SummaryPage';
 import InstructorDashboard from './pages/InstructorDashboard';
+import BreathingExercise from './pages/BreathingExercise'; // keep path consistent
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -64,6 +65,7 @@ function App() {
   };
 
   const handleSlidersComplete = (vals) => {
+    // insert into students (local state). If you later use supabase, you can also save there.
     setStudents([...students, { ...currentStudent, program, simulation, score, ...vals }]);
     setPage('summary');
   };
@@ -87,12 +89,14 @@ function App() {
           onInstructorLogin={handleInstructorLogin}
         />
       )}
+
       {page === 'program' && (
         <ProgramSelection
           onSelect={handleProgramSelect}
           onBack={handleHome}
         />
       )}
+
       {page === 'simulation' && (
         <SimulationSelection
           program={program}
@@ -100,12 +104,14 @@ function App() {
           onBack={() => setPage('program')}
         />
       )}
+
       {page === 'stage' && (
         <StageSelection
           onSelect={handleStageSelect}
           onBack={() => setPage('simulation')}
         />
       )}
+
       {page === 'mcq' && (
         <MCQPage
           program={program}
@@ -113,22 +119,38 @@ function App() {
           onBack={() => setPage('simulation')}
         />
       )}
+
       {page === 'sliders' && (
         <SlidersPage
           onComplete={handleSlidersComplete}
           onBack={() => setPage('mcq')}
         />
       )}
-      {page === 'summary' && <SummaryPage simulation={simulation} score={score} />}
+
+      {page === 'summary' && (
+        // pass a callback so SummaryPage can navigate to breathing
+        <SummaryPage
+          simulation={simulation}
+          score={score}
+          onContinue={() => setPage('breathing')}
+        />
+      )}
+
       {page === 'instructor' && (
         <InstructorDashboard
           students={filteredStudents}
           onHome={handleHome}
         />
       )}
+
+      {page === 'breathing' && (
+        // pass an onDone to return home (or change as you prefer)
+        <BreathingExercise onDone={handleHome} />
+      )}
     </div>
   );
 }
 
 export default App;
+
 

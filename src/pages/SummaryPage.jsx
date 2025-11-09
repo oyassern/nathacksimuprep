@@ -1,27 +1,92 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/styles';
 import SIMULATION_BRIEFS from '../data/simulationBriefs';
 
-function SummaryPage({ simulation, score }) {
-  const brief = SIMULATION_BRIEFS[simulation] || { focus: "General simulation practice", objectives: "Apply learned skills effectively" };
+function SummaryPage({ simulation, score, onContinue }) {
+  const brief = SIMULATION_BRIEFS[simulation] || { description: "Scenario information unavailable." };
+  const [feedback, setFeedback] = useState("Generating pre-briefing feedback...");
 
-  const getFeedback = (score) => {
-    if (score <= 2) return "Focus on foundational skills and stay calm under pressure.";
-    if (score <= 4) return "Good knowledge base – refine communication and decision-making.";
-    return "Excellent readiness – maintain confidence and team awareness.";
+  useEffect(() => {
+    async function getFeedback() {
+      try {
+        const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${import.meta.env.VITE_OPENROUTER_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model: "google/gemini-pro",
+            messages: [
+              {
+                role: "user",
+                content: `Provide a short, encouraging pre-briefing message for a student preparing to run the simulation "${simulation}". Focus on emotional readiness, confidence, and teamwork.`,
+              },
+            ],
+          }),
+        });
+
+        const data = await res.json();
+        const text = data?.choices?.[0]?.message?.content || "Unable to generate pre-briefing feedback.";
+        setFeedback(text);
+      } catch (err) {
+        console.error(err);
+        setFeedback("Unable to generate feedback at this time.");
+      }
+    }
+
+    getFeedback();
+  }, [simulation]);
+
+  // ✅ Fixed navigation: use onContinue instead of window.location
+  const handleNext = () => {
+    if (typeof onContinue === "function") onContinue();
   };
 
   return (
     <div style={styles.gradientBg}>
       <div style={styles.card}>
-        <h2 style={{ color: '#002D72' }}>Pre-Simulation Briefing</h2>
-        <p><b>Your Readiness Feedback:</b> {getFeedback(score)}</p>
-        <p><b>Scenario:</b> {simulation}</p>
-        <p><b>Focus:</b> {brief.focus}</p>
-        <p><b>Objectives:</b> {brief.objectives}</p>
+        {/* Scenario Title */}
+        <h1 style={{ color: '#002D72', fontSize: '28px', fontWeight: '600', marginBottom: '20px' }}>
+          {simulation}
+        </h1>
+
+        {/* Pre-Briefing Description */}
+        <h3 style={{ color: '#002D72', marginBottom: '8px' }}>Pre-Briefing Description</h3>
+        <p style={{ marginBottom: '24px', lineHeight: '1.6', color: '#333' }}>
+          {brief.description}
+        </p>
+
+        {/* Pre-Briefing Feedback */}
+        <h3 style={{ color: '#002D72', marginBottom: '8px' }}>Pre-Briefing Feedback</h3>
+        <p style={{ whiteSpace: 'pre-line', color: '#333', marginBottom: '40px' }}>
+          {feedback}
+        </p>
+
+        {/* Centered Continue Button */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button
+            onClick={handleNext}
+            style={{
+              backgroundColor: '#002D72',
+              color: 'white',
+              border: 'none',
+              borderRadius: '10px',
+              padding: '12px 24px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              transition: '0.3s',
+            }}
+            onMouseOver={(e) => (e.target.style.backgroundColor = '#003c9b')}
+            onMouseOut={(e) => (e.target.style.backgroundColor = '#002D72')}
+          >
+            Continue to Breathing Exercise
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
 export default SummaryPage;
+
