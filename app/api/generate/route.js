@@ -23,12 +23,26 @@ export async function POST(req) {
   if (!topic) return NextResponse.json({ error: 'topic is required' }, { status: 400 })
   const n = Math.min(Math.max(Number(count) || 1, 1), 5)
 
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  // Use OpenRouter via OpenAI-compatible SDK client
+  const openai = new OpenAI({
+    apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY,
+    baseURL: 'https://openrouter.ai/api/v1',
+    defaultHeaders: {
+      'HTTP-Referer': process.env.OPENROUTER_SITE_URL || 'http://localhost:3000',
+      'X-Title': process.env.OPENROUTER_APP_NAME || 'MCQ Generator',
+    },
+  })
+
+  // Allow selecting model from env; fallback to a sensible default
+  const model =
+    process.env.OPENROUTER_MODEL ||
+    process.env.OPENAI_MODEL ||
+    'z-ai/glm-4.5-air:free'
 
   let json
   try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
+      model,
       messages: [
         { role: 'system', content: 'You return strict JSON only.' },
         { role: 'user', content: buildPrompt(topic, n) },
