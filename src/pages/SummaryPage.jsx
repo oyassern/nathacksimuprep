@@ -1,42 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/styles';
+import OpenAI from "openai";
 import SIMULATION_BRIEFS from '../data/simulationBriefs';
 
+async function getFeedback(simulation, score) {
+  const OPENAI_API_KEY = import.meta.env.VITE_OpenAI_KEY;
+  const client = new OpenAI({
+    apiKey: OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true, // allows running in browser (Next.js client side)
+  });
+
+  const prompt = `
+You are a clinical education assistant. A student just completed a simulation pre-test.
+Simulation topic: "${simulation}"
+They scored ${score} out of 5.
+
+Write a short structured feedback summary including:
+1. Overall performance overview (1–2 sentences)
+2. Specific areas to review or study more (bullet points)
+3. Practical improvement tips they can apply before simulation.
+Keep it encouraging and clear for students in healthcare training.
+Return only plain text with clear line breaks (no JSON or markdown formatting).
+`;
+
+  const response = await client.responses.create({
+    model: "gpt-5-nano",
+    input: prompt,
+  });
+
+  return response.output_text;
+  // const response = await fetch("/api/feedback");
+  // console.log(await response.json());
+  // return "test";
+}
+
 function SummaryPage({ simulation, score, onContinue }) {
+  const [feedback, setFeedback] = useState("Loading feedback...");
   const brief = SIMULATION_BRIEFS[simulation] || { description: "Scenario information unavailable." };
-  const [feedback, setFeedback] = useState("Generating pre-briefing feedback...");
 
+    // 🧠 Fetch feedback when component mounts or score/simulation changes
   useEffect(() => {
-    async function getFeedback() {
+    async function fetchFeedback() {
       try {
-        const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${import.meta.env.VITE_OPENROUTER_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            model: "google/gemini-pro",
-            messages: [
-              {
-                role: "user",
-                content: `Provide a short, encouraging pre-briefing message for a student preparing to run the simulation "${simulation}". Focus on emotional readiness, confidence, and teamwork.`,
-              },
-            ],
-          }),
-        });
-
-        const data = await res.json();
-        const text = data?.choices?.[0]?.message?.content || "Unable to generate pre-briefing feedback.";
+        const text = await getFeedback(simulation, score);
         setFeedback(text);
       } catch (err) {
         console.error(err);
-        setFeedback("Unable to generate feedback at this time.");
+        setFeedback("Unable to generate feedback. Please try again later.");
       }
     }
-
-    getFeedback();
-  }, [simulation]);
+    fetchFeedback();
+  }, [simulation, score]);
 
   // ✅ Fixed navigation: use onContinue instead of window.location
   const handleNext = () => {
