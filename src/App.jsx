@@ -8,7 +8,7 @@ import MCQPage from './pages/MCQPage';
 import SlidersPage from './pages/SlidersPage';
 import SummaryPage from './pages/SummaryPage';
 import InstructorDashboard from './pages/InstructorDashboard';
-import BreathingExercise from './pages/BreathingExercise';
+import BreathingExercise from './pages/BreathingExercise'; // keep path consistent
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -28,7 +28,7 @@ function App() {
 
   const handleInstructorLogin = () => {
     setIsInstructor(true);
-    setPage('instructor'); // Go directly to dashboard after access code
+    setPage('program');
   };
 
   const handleProgramSelect = (p) => {
@@ -39,7 +39,14 @@ function App() {
   const handleSimulationSelect = (sim) => {
     setSimulation(sim);
 
-    // Student flow only - instructors don't go through this
+    // Instructor flow
+    if (isInstructor) {
+      setInstructorSimulation(sim);
+      setPage('instructor');
+      return;
+    }
+
+    // Student flow
     if (sim === 'RESP 2695') {
       setPage('stage');
     } else {
@@ -58,17 +65,8 @@ function App() {
   };
 
   const handleSlidersComplete = (vals) => {
+    // insert into students (local state). If you later use supabase, you can also save there.
     setStudents([...students, { ...currentStudent, program, simulation, score, ...vals }]);
-    setPage('summary');
-  };
-
-  // Add this function to handle breathing exercise navigation
-  const handleStartBreathingExercise = () => {
-    setPage('breathing');
-  };
-
-  // Add this function to handle back from breathing exercise
-  const handleBackFromBreathing = () => {
     setPage('summary');
   };
 
@@ -78,8 +76,10 @@ function App() {
     setInstructorSimulation('');
   };
 
-  // For instructors, show ALL students (no filtering)
-  const instructorStudents = students;
+  // Filter student data if instructor is viewing specific simulation
+  const filteredStudents = isInstructor
+    ? students.filter((s) => s.simulation === instructorSimulation)
+    : [];
 
   return (
     <div style={styles.app}>
@@ -128,25 +128,29 @@ function App() {
       )}
 
       {page === 'summary' && (
+        // pass a callback so SummaryPage can navigate to breathing
         <SummaryPage
           simulation={simulation}
           score={score}
-          onStartBreathingExercise={handleStartBreathingExercise}
+          onContinue={() => setPage('breathing')}
         />
       )}
 
       {page === 'instructor' && (
         <InstructorDashboard
-          students={instructorStudents} // Show all students for instructors
+          students={filteredStudents}
           onHome={handleHome}
         />
       )}
 
       {page === 'breathing' && (
-        <BreathingExercise onBack={handleBackFromBreathing} />
+        // pass an onDone to return home (or change as you prefer)
+        <BreathingExercise onDone={handleHome} />
       )}
     </div>
   );
 }
 
 export default App;
+
+
