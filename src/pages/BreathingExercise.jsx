@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-function BreathingExercise() {
+function BreathingExercise({ onBack }) {
   const [phase, setPhase] = useState("Ready");
   const [count, setCount] = useState(null);
   const [started, setStarted] = useState(false);
@@ -45,7 +45,13 @@ function BreathingExercise() {
   };
 
   const handleReturn = () => {
-    window.location.href = "/";
+    // Use the onBack prop instead of window.location
+    if (onBack) {
+      onBack();
+    } else {
+      // Fallback in case prop isn't passed
+      window.location.href = "/";
+    }
   };
 
   // Proper phase scaling
@@ -86,7 +92,7 @@ function BreathingExercise() {
           }}
         >
           Take a moment to slow your breathing and relax. 
-          When you’re ready, press <b>Start</b> to begin a short guided breathing exercise. 
+          When you're ready, press <b>Start</b> to begin a short guided breathing exercise. 
           Breathe in as the circle expands, hold briefly, and breathe out as it gently shrinks.
         </p>
 
@@ -178,4 +184,3 @@ function BreathingExercise() {
 }
 
 export default BreathingExercise;
-

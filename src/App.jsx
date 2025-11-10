@@ -8,7 +8,7 @@ import MCQPage from './pages/MCQPage';
 import SlidersPage from './pages/SlidersPage';
 import SummaryPage from './pages/SummaryPage';
 import InstructorDashboard from './pages/InstructorDashboard';
-import BreathingExercise from './pages/BreathingExercise'; // keep path consistent
+import BreathingExercise from './pages/BreathingExercise';
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -65,8 +65,17 @@ function App() {
   };
 
   const handleSlidersComplete = (vals) => {
-    // insert into students (local state). If you later use supabase, you can also save there.
     setStudents([...students, { ...currentStudent, program, simulation, score, ...vals }]);
+    setPage('summary');
+  };
+
+  // Add this function to handle breathing exercise navigation
+  const handleStartBreathingExercise = () => {
+    setPage('breathing');
+  };
+
+  // Add this function to handle back from breathing exercise
+  const handleBackFromBreathing = () => {
     setPage('summary');
   };
 
@@ -128,11 +137,10 @@ function App() {
       )}
 
       {page === 'summary' && (
-        // pass a callback so SummaryPage can navigate to breathing
         <SummaryPage
           simulation={simulation}
           score={score}
-          onContinue={() => setPage('breathing')}
+          onStartBreathingExercise={handleStartBreathingExercise}
         />
       )}
 
@@ -144,13 +152,10 @@ function App() {
       )}
 
       {page === 'breathing' && (
-        // pass an onDone to return home (or change as you prefer)
-        <BreathingExercise onDone={handleHome} />
+        <BreathingExercise onBack={handleBackFromBreathing} />
       )}
     </div>
   );
 }
 
 export default App;
-
-
