@@ -37,6 +37,12 @@ Simuprep is a lightweight web tool for program-specific practice and instructor 
 - Tighter LMS (LTI) integrations for larger adoption.
 - More advanced instructor analytics (cohort tracking, item-level psychometrics, and automated remediation suggestions).
 
+## Steps to run
+- Clone repository.
+- If you want there to be personalized feedback, create a .env.local file in the parent directory with an OpenAI API key under VITE_OpenAI_KEY.
+- Run "npm install".
+- Run "npm run dev".
+
 ## Members
 | Name |
 | ---- |
