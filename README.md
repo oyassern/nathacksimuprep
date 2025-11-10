@@ -8,22 +8,6 @@ Simuprep is a lightweight web tool for program-specific practice and instructor 
 - Student features: program flows (Paramedic, Animal Health, Respiratory Therapy), multiple-choice questions with instant feedback, sliders for Confidence / Preparedness / Anxiety, short paced-breathing exercises, and a performance summary with suggested review areas.
 - Instructor features: dashboard with scores and emotional metrics, filters by program/simulation, trend visualizations, knowledge-gap detection, and export (JSON/CSV).
 
-Simple models used:
-- Success model
-$$
-P_{success} = \frac{\text{Knowledge} \times \text{Confidence}}{\text{Anxiety} + \epsilon}
-$$
-
-- Knowledge gap
-$$
-\text{Knowledge Gap}(\%) = \frac{\text{Incorrect Answers}}{\text{Total Questions}} \times 100\%
-$$
-
-- Composite scoring (example)
-$$
-\text{Overall Score} = 0.7 \times \text{MCQ Score} + 0.3 \times \frac{\text{Confidence} + \text{Preparedness}}{2}
-$$
-
 ## How we built it
 - Frontend: React with hooks, role-based routing, and modular components for questions, sliders, and dashboards. Deterministic seeds are used where reproducibility matters (e.g., deterministic question sampling).
 - Data model: relational-style layout (Students → Programs → Simulations → Questions → Responses) to keep analytics straightforward.
