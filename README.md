@@ -23,3 +23,23 @@ Setup: database (mac)
    - rm -rf supabase
    - supabase init
 
+Generating questions using supaase js client
+- refer to parsed-questions.js and generated_questions.sql
+- dependecies to using dotenv (.env.local for apis, urls, keys: 
+  - npm install dotenv
+1. npm install @supabase/supabase-js
+   
+integate openai API to generatra quesitons from PDF content:
+- dependeccies:
+  - openai
+  - pdf-parse
+  - dotenv
+1. npm install openai
+2. update parsed-questions.js with openai integration
+3. make sure to add OPENAI_API_KEY to .env.local
+4, generating questions:
+   - node parsed-questions.js > generated_questions.sql
+
+changes to prompt to generate better questions:
+- using articles provided by efrem
+  

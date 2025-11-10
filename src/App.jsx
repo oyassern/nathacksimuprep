@@ -45,12 +45,7 @@ function App() {
       return;
     }
 
-    // Student flow
-    if (sim === 'RESP 2695') {
-      setPage('stage');
-    } else {
-      setPage('mcq');
-    }
+    setPage('mcq');
   };
 
   const handleStageSelect = (stage) => {
@@ -109,17 +104,26 @@ function App() {
       {page === 'mcq' && (
         <MCQPage
           program={program}
+          simulation={simulation}  // ← ADD THIS LINE - pass the simulation prop!
           onComplete={handleMCQComplete}
           onBack={() => setPage('simulation')}
         />
       )}
       {page === 'sliders' && (
         <SlidersPage
+          program={program}  // ← Also add program to SlidersPage for consistency
+          simulation={simulation}  // ← And simulation to SlidersPage
           onComplete={handleSlidersComplete}
           onBack={() => setPage('mcq')}
         />
       )}
-      {page === 'summary' && <SummaryPage simulation={simulation} score={score} />}
+      {page === 'summary' && (
+        <SummaryPage 
+          program={program}  // ← Add program to SummaryPage
+          simulation={simulation} 
+          score={score} 
+        />
+      )}
       {page === 'instructor' && (
         <InstructorDashboard
           students={filteredStudents}
@@ -131,4 +135,3 @@ function App() {
 }
 
 export default App;
-

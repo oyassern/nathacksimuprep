@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/styles';
 import { Range } from 'react-range';
 
-function SlidersPage({ onComplete, onBack }) {
+function SlidersPage({ program, simulation, onComplete, onBack }) {
   const [confidence, setConfidence] = useState(5);
   const [preparedness, setPreparedness] = useState(5);
   const [anxiety, setAnxiety] = useState(5);
@@ -92,6 +92,20 @@ function SlidersPage({ onComplete, onBack }) {
 
       <div style={styles.card}>
         <h2 style={{ color: '#002D72', marginBottom: '15px' }}>Pre-Simulation Check-In</h2>
+        
+        {/* Program and Simulation Info */}
+        <div style={{ 
+          backgroundColor: '#E8F4FD', 
+          padding: '12px', 
+          borderRadius: '8px', 
+          marginBottom: '20px',
+          border: '1px solid #4EA5D9'
+        }}>
+          <p style={{ margin: '5px 0', fontSize: '14px', color: '#002D72' }}>
+            <strong>Program:</strong> {program} | <strong>Simulation:</strong> {simulation}
+          </p>
+        </div>
+        
         <p style={{ marginBottom: '25px', color: '#000000', fontSize: '15px' }}>
           Rate how you feel before simulation.
         </p>
@@ -102,7 +116,7 @@ function SlidersPage({ onComplete, onBack }) {
         {renderSlider('Stress', stress, setStress, '#FF8C00')}
 
         <button style={styles.button} onClick={handleSubmit}>
-          Continue
+          Continue to Summary
         </button>
       </div>
     </div>

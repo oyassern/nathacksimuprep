@@ -1,21 +1,5 @@
 -- 001_initial_schema.sql
--- Purpose:
---   Initial database migration for the project. This file creates the core
---   schema objects used by the application: programs enum, `simulations`, and
---   `questions` tables. It also creates helpful indexes and enables basic
---   Row Level Security (RLS) policies for a sensible default environment.
---
--- Usage:
---   - Apply this migration first when provisioning a fresh database.
---   - With supabase CLI: place under `db/migrations/` and run `supabase db push`.
---   - Or use psql with the connection string:
---       psql "$SUPABASE_DB_CONN" -f db/migrations/001_initial_schema.sql
---
--- Notes:
---   - This migration uses `gen_random_uuid()` (ensure `pgcrypto` or relevant
---     UUID extension is available on your DB). Adjust extension statements to
---     your Postgres environment if needed.
-
+-- Initial database schema with 4-option questions structure
 
 -- Create programs enum
 CREATE TYPE program_type AS ENUM ('paramedicine', 'animal_health', 'respiratory_therapy');
@@ -29,7 +13,7 @@ CREATE TABLE simulations (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create questions table
+-- Create questions table with ONLY 4 options (A, B, C, D)
 CREATE TABLE questions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   simulation_id UUID REFERENCES simulations(id) ON DELETE CASCADE,
@@ -38,8 +22,7 @@ CREATE TABLE questions (
   option_b TEXT NOT NULL,
   option_c TEXT NOT NULL,
   option_d TEXT NOT NULL,
-  option_e TEXT, -- Optional 5th option
-  correct_answer CHAR(1) NOT NULL CHECK (correct_answer IN ('a', 'b', 'c', 'd', 'e')),
+  correct_answer CHAR(1) NOT NULL CHECK (correct_answer IN ('a', 'b', 'c', 'd')),
   explanation TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -52,6 +35,6 @@ CREATE INDEX idx_simulations_program ON simulations(program);
 ALTER TABLE simulations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE questions ENABLE ROW LEVEL SECURITY;
 
--- Create policies (adjust based on your needs)
+-- Create basic read-only policies
 CREATE POLICY "Simulations are viewable by everyone" ON simulations FOR SELECT USING (true);
 CREATE POLICY "Questions are viewable by everyone" ON questions FOR SELECT USING (true);
