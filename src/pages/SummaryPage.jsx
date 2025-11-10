@@ -104,17 +104,9 @@ function SummaryPage({ simulation, score, onStartBreathingExercise }) {
           marginBottom: '12px',
           fontSize: '15px',
           lineHeight: '1.4',
-          padding: '8px',
-          backgroundColor: '#f8f9fa',
+          padding: '2px',
           borderRadius: '8px'
         }}>
-          <span style={{ 
-            color: '#002D72', 
-            marginRight: '12px',
-            fontWeight: 'bold',
-            fontSize: '16px',
-            minWidth: '20px'
-          }}>•</span>
           <span style={{ color: '#333' }}>{cleanLine.replace(/^•\s*/, '')}</span>
         </div>
       );
@@ -150,7 +142,7 @@ function SummaryPage({ simulation, score, onStartBreathingExercise }) {
             fontWeight: '600',
             textAlign: 'center'
           }}>
-            📋 Pre-Briefing Description
+            Pre-Briefing Description
           </h3>
           <p style={{ 
             margin: '0', 
@@ -178,7 +170,7 @@ function SummaryPage({ simulation, score, onStartBreathingExercise }) {
             textAlign: 'center',
             fontWeight: '600'
           }}>
-            🎯 Personalized Feedback
+             Personalized Feedback
           </h3>
           
           {loading ? (

@@ -39,7 +39,7 @@ function StartPage({ onStudentSubmit, onInstructorLogin }) {
         <div style={styles.header}>SIMU PREP</div>
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ color: '#FFFFFF', fontSize: '32px', marginBottom: '40px' }}>
-            Are you a Student or an Instructor?
+            Choose your role
           </h1>
           <button style={styles.button} onClick={() => setRole('student')}>Student</button>
           <button style={{ ...styles.button, marginTop: '20px' }} onClick={() => setRole('instructor')}>Instructor</button>
@@ -63,16 +63,22 @@ function StartPage({ onStudentSubmit, onInstructorLogin }) {
       </div>
     );
   }
-
+  
   if (role === 'instructor') {
     return (
       <div style={styles.gradientBg}>
         <div style={styles.header}>SIMU PREP</div>
         <div style={styles.card}>
           <h2 style={{ color: '#002D72', marginBottom: '20px' }}>Instructor Access</h2>
-          <input style={styles.input} type="password" placeholder="Access Code" value={accessCode} onChange={(e) => setAccessCode(e.target.value)} />
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-          <button style={styles.button} onClick={handleInstructorLogin}>Login</button>
+          <input 
+            style={styles.input} 
+            placeholder="Access Code" 
+            value={accessCode} 
+            onChange={(e) => setAccessCode(e.target.value)}
+            type="password"
+          />
+          {error && <p style={{ color: 'red', marginBottom: '10px' }}>{error}</p>}
+          <button style={styles.button} onClick={handleInstructorLogin}>Access Dashboard</button>
           <button style={{ ...styles.button, backgroundColor: '#4EA5D9', marginTop: '10px' }} onClick={handleBack}>Back</button>
         </div>
       </div>

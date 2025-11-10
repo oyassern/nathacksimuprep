@@ -28,7 +28,7 @@ function App() {
 
   const handleInstructorLogin = () => {
     setIsInstructor(true);
-    setPage('program');
+    setPage('instructor'); // Go directly to dashboard after access code
   };
 
   const handleProgramSelect = (p) => {
@@ -39,14 +39,7 @@ function App() {
   const handleSimulationSelect = (sim) => {
     setSimulation(sim);
 
-    // Instructor flow
-    if (isInstructor) {
-      setInstructorSimulation(sim);
-      setPage('instructor');
-      return;
-    }
-
-    // Student flow
+    // Student flow only - instructors don't go through this
     if (sim === 'RESP 2695') {
       setPage('stage');
     } else {
@@ -85,10 +78,8 @@ function App() {
     setInstructorSimulation('');
   };
 
-  // Filter student data if instructor is viewing specific simulation
-  const filteredStudents = isInstructor
-    ? students.filter((s) => s.simulation === instructorSimulation)
-    : [];
+  // For instructors, show ALL students (no filtering)
+  const instructorStudents = students;
 
   return (
     <div style={styles.app}>
@@ -146,7 +137,7 @@ function App() {
 
       {page === 'instructor' && (
         <InstructorDashboard
-          students={filteredStudents}
+          students={instructorStudents} // Show all students for instructors
           onHome={handleHome}
         />
       )}
