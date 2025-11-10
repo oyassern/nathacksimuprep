@@ -3,301 +3,289 @@ const MCQ_QUESTIONS = {
   "paramedic": {
     "NAIT Pool: Pediatric Choking/Arrest": [
       {
-        "q": "After a challenging resuscitation of a 6-year-old girl in cardiac arrest, your team is showing signs of emotional distress. What is the most appropriate action you as the team leader can take?",
+        "q": "You are leading a team treating a 2-year-old child who is in ventricular fibrillation. You have administered one shock, but the child remains in VF. What should you do next?",
         "options": [
-          "Encourage the team members to take a break and rest.",
-          "Arrange for a Critical Incident Stress Management (CISM) debrief.",
-          "Suggest the team members to seek individual counseling.",
-          "Ask the team members to write about their feelings in a journal."
-        ],
-        "correct": 1,
-        "explanation": "In high-stress critical events, arranging a CISM debrief can provide peer-support and help manage team members' emotional distress. This addresses learning objective 5, discussing the benefit for peer-support and CISM in pediatric population critical events."
-      },
-      {
-        "q": "A 6-year-old boy has collapsed and is in cardiac arrest. After the first round of CPR, he remains asystolic. What is the next step according to the Pediatric Advanced Life Support (PALS) guidelines?",
-        "options": [
-          "Continue chest compressions.",
-          "Administer atropine.",
-          "Prepare for synchronized cardioversion.",
-          "Administer epinephrine."
+          "Administer amiodarone",
+          "Administer another shock",
+          "Administer epinephrine",
+          "Begin chest compressions"
         ],
         "correct": 3,
-        "explanation": "According to PALS guidelines, epinephrine is the next step after completing the first round of CPR on an asystolic pediatric patient. This addresses learning objective 3, performing the PALS guidelines for a pediatric cardiac arrest including asystole."
+        "explanation": "Following the learning objective 3, after one shock, the next step in the PALS guidelines for a pediatric cardiac arrest with VF is to resume chest compressions immediately."
+      },
+      {
+        "q": "You are treating a 5-year-old child in cardiac arrest. The heart rhythm is asystole. You have administered epinephrine, but there is no change in heart rhythm. What is your next step?",
+        "options": [
+          "Begin chest compressions",
+          "Perform a rapid sequence intubation",
+          "Administer another dose of epinephrine",
+          "Start an intraosseous (IO) infusion"
+        ],
+        "correct": 3,
+        "explanation": "As per the learning objective 4, in a pediatric cardiac arrest situation where vascular access is needed immediately and peripheral IV access is not available, starting an intraosseous (IO) infusion is the appropriate next step."
       }
     ],
     "Peds ER: Cardiac Emergency": [
       {
-        "q": "You are presented with a 7-year-old boy in the ER who appears pale and is breathing rapidly. The boy's mother reports a history of congenital heart disease. He is tachycardic and his O2 saturation is 88%. What is your first step in managing this patient?",
+        "q": "A 7-year-old boy is brought to the ER due to chest pain and difficulty in breathing. His pulse is rapid and weak. He is hypoxic. What is the first step in managing this patient?",
         "options": [
-          "Administer a beta blocker to slow heart rate",
-          "Administer IV fluids",
-          "Perform an immediate echocardiogram",
-          "Initiate high-flow oxygen therapy"
+          "Deliver a shock using the defibrillator",
+          "Administer intravenous fluids",
+          "Start chest compressions",
+          "Administer high flow oxygen via non-rebreather mask"
         ],
         "correct": 3,
-        "explanation": "The first step in managing a decompensated cardiac patient is to stabilize the patient. In this case, the boy's low O2 saturation suggests hypoxemia, which is an immediate threat to life. Consequently, initiating high-flow oxygen therapy (objective 3) is the correct first step."
+        "explanation": "The first step in managing a hypoxic patient with a cardiac emergency is to restore oxygenation, in accordance with learning objective 3."
       },
       {
-        "q": "A 2-year-old boy with a history of Tetralogy of Fallot presents to the ER in respiratory distress. His O2 saturation is 84%. His heart sounds are muffled and he appears lethargic. What should be your immediate course of action?",
+        "q": "A 4-year-old girl is brought into the ER with severe dyspnea. She is tachycardic, hypotensive, and cyanotic. What is the immediate management?",
         "options": [
-          "Administer a bolus of IV fluids",
-          "Start chest compressions",
-          "Initiate high-flow oxygen therapy",
-          "Perform an immediate thoracentesis"
-        ],
-        "correct": 2,
-        "explanation": "The immediate course of action should be to initiate high-flow oxygen therapy (objective 3). The child's low O2 saturation indicates hypoxemia that needs to be addressed immediately."
-      },
-      {
-        "q": "A 6-year-old girl with a known cardiac condition is brought to the ER in a state of altered consciousness. Her heart rate is 160 bpm, and her O2 saturation is 86%. She is cyanotic and has cold, clammy skin. What should be your immediate intervention?",
-        "options": [
-          "Initiate high-flow oxygen therapy",
-          "Administer a bolus of IV fluids",
-          "Perform endotracheal intubation",
-          "Administer subcutaneous epinephrine"
+          "Administer high flow oxygen via non-rebreather mask",
+          "Administer nitroglycerin under the tongue",
+          "Start chest compressions and call for the defibrillator",
+          "Administer intravenous fluids"
         ],
         "correct": 0,
-        "explanation": "The immediate intervention should be to initiate high-flow oxygen therapy (objective 3). The child's tachycardia, hypoxia, cyanosis, and altered consciousness indicate a decompensated cardiac condition (objective 1) that requires immediate oxygen therapy."
+        "explanation": "The child's severe dyspnea, tachycardia, hypotension, and cyanosis suggest severe hypoxia needing immediate oxygen therapy, in accordance with learning objective 3."
       }
     ],
-    "RESP 2695 (Pediatric OR - PALS)": [
-      {
-        "q": "A 2-year-old child is brought to the emergency department with a 2-day history of cough, fever, and difficulty breathing. The child appears to be in distress with a respiratory rate of 40/min, heart rate of 120 bpm, and oxygen saturation of 93% on room air. On examination, the child has decreased breath sounds on the right side. What is the most likely diagnosis?",
-        "options": [
-          "Croup",
-          "Bronchiolitis",
-          "Asthma",
-          "Pneumonia"
-        ],
-        "correct": 3,
-        "explanation": "The child's symptoms, fever, and decreased breath sounds on one side suggest a diagnosis of pneumonia."
-      },
-      {
-        "q": "A 4-year-old child is brought to the emergency department with a barking cough, inspiratory stridor, and mild difficulty breathing. The symptoms started suddenly at night. The child has a temperature of 37.2C, heart rate of 110 bpm and oxygen saturation of 95% on room air. What is the most appropriate first-line treatment?",
-        "options": [
-          "Oral antibiotics",
-          "Inhaled beta-2 agonists",
-          "Inhaled corticosteroids",
-          "Inhaled epinephrine and corticosteroids"
-        ],
-        "correct": 3,
-        "explanation": "The child's symptoms suggest a diagnosis of croup. The first-line treatment for moderate to severe croup is inhaled epinephrine and corticosteroids."
-      }
-    ]
+    "RESP 2695 (Pediatric OR - PALS)": []
   },
   "animal health": {
     "Dog Fight": [
       {
-        "q": "The owner of Bella calls the vet clinic for an update on Bella's condition. What should you prioritize in your communication with the owner?",
+        "q": "After Bella's treatment, you need to update her medical records and schedule a follow-up appointment. Which of the following is the most appropriate way to do this?",
         "options": [
-          "The cost and payment options for Bella's treatment.",
-          "The technical details of Bella's treatment.",
-          "The current status of Bella and what to expect next.",
-          "The details of the fight that caused Bella's injuries."
+          "Do not update Bella's records until after the follow-up appointment and schedule the appointment for two weeks’ time",
+          "Leave Bella's records for another team member to update and schedule the appointment for the next day",
+          "Update Bella's records immediately and schedule a follow-up appointment in a week’s time",
+          "Update Bella's records when you have free time and schedule the appointment for the next available slot"
         ],
         "correct": 2,
-        "explanation": "This question tests the ability to update/report patient status to client as appropriate (LO8). Option B is the most appropriate as it provides the owner with the most relevant information about Bella's current status and the next steps in her care."
+        "explanation": "This question tests learning objective 6: Managing client records and appointments using Cornerstone. Timely and accurate updating of records, and appropriate scheduling is critical for patient care."
       },
       {
-        "q": "While treating Bella, another client arrives for a routine checkup. You are the only veterinary team member present. What is the best way to handle this situation?",
+        "q": "Bella needs immediate surgery. Before the procedure, it's important to obtain informed consent from Bella's owner. Which of the following is an appropriate way to do this?",
         "options": [
-          "Stop treating Bella and attend to the client with the routine checkup.",
-          "Ask the client with the routine checkup to reschedule their appointment.",
-          "Communicate with the other team members remotely to manage the concurrent tasks.",
-          "Ask the client with the routine checkup to wait and continue with Bella's treatment."
+          "Explain the procedure, its risks and benefits, to Bella's owner and have them sign a consent form",
+          "Gain verbal consent from Bella's owner without any written documentation",
+          "Ask Bella's owner to sign a consent form without explaining the procedure",
+          "Assume Bella's owner gives consent because they brought Bella to the clinic"
         ],
-        "correct": 2,
-        "explanation": "This question tests the ability to communicate with veterinary team members to manage concurrent tasks (LO2). Option D is the most suitable approach, as it allows for the treatment of Bella to proceed while also addressing the needs of the other client."
+        "correct": 0,
+        "explanation": "This question tests learning objective 4: Gathering informed consent. It's crucial to ensure the owner understands the procedure and its possible outcomes."
       }
     ],
     "Euthanasia: Cat": [
       {
-        "q": "The client has decided to be present during the euthanasia procedure. The cat is calm and the procedure is about to begin. What is an important detail that needs to be confirmed before proceeding?",
+        "q": "Mrs. Green has decided to euthanize her elderly cat, Mittens, due to severe health complications. Which of the following should you do next?",
         "options": [
-          "Ask the client if they would like to say any final words to their cat.",
-          "Discuss the cost of euthanasia and ensure payment is taken prior to procedure.",
-          "Ask the client about their preferred method of payment.",
-          "Ask the client if they have arranged transportation home."
+          "Ask Mrs. Green if she wishes to be present during the procedure.",
+          "Ask Mrs. Green to sign the euthanasia agreement form.",
+          "All of the above.",
+          "Take Mittens to the procedure room."
         ],
         "correct": 1,
-        "explanation": "Before the procedure begins, it is important to discuss the cost and ensure payment is taken. This prevents any misunderstandings or disputes later on (Learning Objective 4)."
+        "explanation": "After the client has made the decision to euthanize, the next step is to ensure the euthanasia agreement form is signed (learning objective 2)."
+      },
+      {
+        "q": "Mr. Jones is bringing his terminally ill cat, Whiskers, for euthanasia. Which of the following is not the most appropriate next step after discussing the procedure with Mr. Jones?",
+        "options": [
+          "Ask Mr. Jones if he wishes to be present during the procedure.",
+          "Discuss the cost of the procedure with Mr. Jones.",
+          "Take Whiskers to the procedure room.",
+          "Ensure Mr. Jones signs the euthanasia agreement form."
+        ],
+        "correct": 2,
+        "explanation": "Before proceeding with the euthanasia, it is important to discuss and complete all necessary forms and discuss costs (learning objectives 2, 3, and 4). Taking Whiskers to the procedure room should be the last step."
+      },
+      {
+        "q": "Mrs. Smith brought her 15-year-old cat, Fluffy, who is seriously ill with no chance of recovery. She is considering euthanasia for Fluffy. How should you proceed initially?",
+        "options": [
+          "Take Fluffy to the procedure room immediately.",
+          "Ask Mrs. Smith to sign the euthanasia agreement form.",
+          "Discuss the cost of the procedure with Mrs. Smith.",
+          "Explain the euthanasia procedure to Mrs. Smith and ask if she has any questions."
+        ],
+        "correct": 3,
+        "explanation": "The first step is to attend to the client's needs, which includes ensuring the client is aware of the procedure and its details."
       }
     ],
     "Euthanasia: Terrier": [
       {
-        "q": "After the procedure, Mrs. Smith thanks you for your help and leaves. What should you do next?",
+        "q": "A client has brought their Terrier in for euthanasia. You've explained the procedure, they've signed the agreement form, and payment has been taken. The client has asked to be present during the procedure. How should you proceed?",
         "options": [
-          "Send Mrs. Smith a condolence card expressing your sympathy.",
-          "Make a note in Max's file that the procedure has been completed.",
-          "Call Mrs. Smith to ask how she's coping.",
-          "Arrange for another appointment for Mrs. Smith."
+          "Ask them to leave the clinic.",
+          "Allow them to be present during the procedure.",
+          "Tell them they can't be present.",
+          "Have them wait in the waiting room."
         ],
         "correct": 1,
-        "explanation": "This relates to the overall process of euthanasia, ensuring all steps are properly documented and followed. It's important to maintain professional standards and practices."
+        "explanation": "This question tests the learning objective 3. When asked, it's important to allow the client to be present during the procedure if they wish."
       },
       {
-        "q": "Mrs. Smith has brought in her 14-year-old Terrier, Max, who has been suffering from terminal cancer. She has decided to proceed with euthanasia. What is your next step?",
+        "q": "A client is bringing their Terrier in for euthanasia. They seem to understand the procedure, but haven't asked about the cost. What should you do?",
         "options": [
-          "Ask Mrs. Smith if she wishes to be present during the procedure.",
-          "Ask Mrs. Smith to leave the room to prepare for the procedure.",
-          "Sign the euthanasia agreement form yourself on behalf of the client.",
-          "Ensure Mrs. Smith signs the euthanasia agreement form."
+          "Discuss the cost and ensure payment is taken prior to the procedure.",
+          "Tell them they don't need to pay since it's a difficult time.",
+          "Tell them the cost after the procedure.",
+          "Proceed with the procedure without discussing the cost."
+        ],
+        "correct": 0,
+        "explanation": "This question tests the learning objective 4. It's important to discuss cost and ensure payment is taken prior to the procedure."
+      },
+      {
+        "q": "A client has brought in their Terrier for euthanasia. You've explained the procedure and they have signed the euthanasia agreement form. What should you do next?",
+        "options": [
+          "Ask the client to leave the room.",
+          "Begin the procedure without asking.",
+          "Ask the client if they wish to be present during the procedure.",
+          "Tell the client they must be present during the procedure."
+        ],
+        "correct": 2,
+        "explanation": "This question tests the learning objective 3. It's important to ask the client if they wish to be present during the procedure."
+      },
+      {
+        "q": "A client has brought their Terrier in for euthanasia. They appear to understand the procedure but have not signed the euthanasia agreement form. What should you do?",
+        "options": [
+          "Tell them they don't need to sign the form if they understand the procedure.",
+          "Ask them to sign the form after the procedure.",
+          "Proceed with the euthanasia.",
+          "Have them sign the form before proceeding with the procedure."
         ],
         "correct": 3,
-        "explanation": "Learning objective 2 states the importance of ensuring the euthanasia agreement form is signed by the client. It's a crucial step before proceeding."
+        "explanation": "This question tests the learning objective 2. It's essential to have the euthanasia agreement form signed before proceeding with the procedure."
       }
     ]
   },
   "respiratory therapist": {
     "Stage 1: Induction and Emergence": [
       {
-        "q": "You are assisting in the extubation of a 7-year-old patient who has just undergone a tonsillectomy. The patient is fully awake and breathing spontaneously. What is the most appropriate next step?",
+        "q": "You are assisting in the induction of anesthesia in a 10-year-old patient. You notice that the patient's oxygen saturation levels are dropping rapidly. What should be your immediate response?",
         "options": [
-          "Administer a reversal agent for the anesthesia.",
-          "Suction the oropharynx before extubation.",
-          "Proceed with extubation without any further intervention.",
-          "Administer an analgesic before extubation."
+          "Start chest compressions",
+          "Administer a reversal agent to wake the patient up",
+          "Ventilate the patient with a self-inflating bagger and mask",
+          "Intubate the patient immediately"
         ],
-        "correct": 1,
-        "explanation": "This question tests the learning objective 'Pediatric extubation'. Suctioning the oropharynx before extubation can help reduce the risk of aspiration."
-      },
-      {
-        "q": "After a successful intubation of a 4-year-old patient, you need to secure the endotracheal tube (ETT). Which of the following is the most appropriate method to secure the ETT in a pediatric patient?",
-        "options": [
-          "Using a commercial tube holder and adhesive tape",
-          "Securing the tube with a necktie",
-          "Using a commercial tube holder",
-          "Tying the tube with adhesive tape directly to the skin"
-        ],
-        "correct": 0,
-        "explanation": "This question tests the learning objective 'Secure ETT'. Both a commercial tube holder and adhesive tape are used to secure the ETT in pediatric patients to prevent accidental extubation."
+        "correct": 2,
+        "explanation": "The immediate response to dropping oxygen saturation levels during induction of anesthesia should be to ventilate the patient with a self-inflating bagger and mask (Learning Objective 3)."
       }
     ],
     "Stage 2: Cardiac Arrest – Post op": [
       {
-        "q": "You are a respiratory therapist introduced to a patient's family in a stressful situation. What is the appropriate way to introduce yourself?",
+        "q": "You are a respiratory therapist involved in the transport of a post-operative cardiac arrest patient who is intubated. Which of the following is the most important to ensure during transport?",
         "options": [
-          "Use NOD (name, occupation, duty) when introducing yourself",
-          "State your name and occupation",
-          "Just state your name",
-          "Just state your occupation"
+          "Consistent monitoring of the patient's vital signs",
+          "Clear communication with the team about patient status and plan",
+          "Comfort of the patient during transport",
+          "Fast transport to minimize time out of the ICU"
         ],
-        "correct": 0,
-        "explanation": "Learning Objective 8: Using NOD (name, occupation, duty) when first introducing self to patients and family members can help establish trust and rapport, particularly in stressful situations."
+        "correct": 1,
+        "explanation": "Ensuring closed-loop communication between team members (Learning Objective 10) is crucial during transport of an intubated patient (Learning Objective 11c). This helps to prevent misunderstandings and errors."
       },
       {
-        "q": "You are about to intubate a patient in cardiac arrest. What is essential to ensure effective team communication during the procedure?",
+        "q": "You are a respiratory therapist who just arrived at a patient's room following a post-operative cardiac arrest. The patient is intubated. Before starting your assessment, what is your first step?",
         "options": [
-          "Use medical jargon to sound professional",
-          "Only the team leader should communicate",
-          "Speak softly to avoid disturbing the patient",
-          "Ensure closed-loop communication between team members"
-        ],
-        "correct": 3,
-        "explanation": "Learning Objective 10: To ensure patient safety and effective team functioning, closed-loop communication should be used, especially during high-stakes procedures like intubation."
-      },
-      {
-        "q": "In a pediatric cardiac arrest situation, which principle should guide your resuscitation efforts?",
-        "options": [
-          "Perform chest compressions at a rate of 100 per minute",
-          "Intubate immediately, regardless of the situation",
-          "Start with adult protocols and adjust as needed",
-          "Follow the principles of PALS (Pediatric Advanced Life Support)"
-        ],
-        "correct": 3,
-        "explanation": "Learning Objective 9: The principles of PALS (Pediatric Advanced Life Support) should guide resuscitation efforts in pediatric cardiac arrest situations."
-      },
-      {
-        "q": "You have just successfully intubated a patient after cardiac arrest. What is required before you proceed to transport the patient?",
-        "options": [
-          "Get the patient's family's approval for transport",
-          "Immediately start transport to the ICU",
-          "Ensure that all students have participated for sign off",
-          "Deflate the endotracheal tube cuff"
+          "Remove the patient's intubation tube",
+          "Begin chest compressions immediately",
+          "Perform hand hygiene and ensure appropriate PPE",
+          "Check the patient's vital signs"
         ],
         "correct": 2,
-        "explanation": "Learning Objective 11c: After intubation, it is necessary to confirm that all students have participated for sign off before proceeding to patient transport."
+        "explanation": "The first step when entering a patient's room is to perform hand hygiene and ensure appropriate PPE (Learning Objective 7). This is necessary to prevent the transmission of infections."
+      },
+      {
+        "q": "You are a respiratory therapist managing a post-operative cardiac arrest patient who is intubated. You are preparing to submit to CBO. What is one of the submissions you should make?",
+        "options": [
+          "S3.1 - Defibrillation",
+          "S5.1 - External pacing",
+          "S4.1 - Intubation",
+          "S6.1 - Drug administration"
+        ],
+        "correct": 2,
+        "explanation": "As the participant performing intubation, you should submit S4.1 - Intubation to CBO (Learning Objective 11a). This is a key part of managing a post-operative cardiac arrest patient."
+      },
+      {
+        "q": "You are a respiratory therapist attending to a post-operative cardiac arrest patient. The patient's heart rate is dropping rapidly. What is your primary intervention according to PALS principles?",
+        "options": [
+          "Start an IV line",
+          "Administer oxygen",
+          "Perform chest compressions",
+          "Give the patient a sedative"
+        ],
+        "correct": 2,
+        "explanation": "According to PALS principles (Learning Objective 9), chest compressions are the primary intervention for a rapidly decreasing heart rate in a cardiac arrest patient."
       }
     ],
     "Stage 3: Withdrawal of Care": [
       {
-        "q": "You are a respiratory therapist assisting in withdrawing care from a terminal patient. The family is in distress. How should you respond?",
+        "q": "Immediately after extubating a patient under withdrawal of care, what should be your next step as a respiratory therapist?",
         "options": [
-          "Ignore the family's distress as it is not your duty to console.",
-          "Educate them about the patient's illness in detail.",
-          "Provide compassionate care and support to the family.",
-          "Advise the family to calm down."
-        ],
-        "correct": 2,
-        "explanation": "As a healthcare provider, it's essential to provide compassionate care and support to the patient and their family (Learning Objective 14). This includes acknowledging their feelings, providing accurate information, and offering emotional support."
-      },
-      {
-        "q": "You are a respiratory therapist who has been called to extubate a terminally ill patient with consent from family members. Prior to starting the procedure, what is the first step you should take?",
-        "options": [
-          "Perform hand hygiene and ensure appropriate Personal Protective Equipment (PPE).",
-          "Start with the removal of the endotracheal tube.",
-          "Administer analgesics to the patient.",
-          "Explain the procedure to the patient's family members once again."
-        ],
-        "correct": 0,
-        "explanation": "The first step before any procedure is to perform hand hygiene and ensure appropriate PPE (Learning Objectives 12). This prevents transmission of infection."
-      },
-      {
-        "q": "During the withdrawal of care, a team member makes a suggestion about the procedure. You don't understand the suggestion. What should you do?",
-        "options": [
-          "Assume what the suggestion could mean and proceed.",
-          "Ignore the suggestion and proceed with the procedure.",
-          "Tell the team member that their suggestion is not needed.",
-          "Ask the team member to explain the suggestion again."
-        ],
-        "correct": 3,
-        "explanation": "In healthcare settings, closed-loop communication is crucial to ensure all team members are on the same page (Learning Objective 17). If you don't understand something, it's important to clarify before proceeding."
-      },
-      {
-        "q": "After a critical incident resulting in a patient's death, what is the next step for you and your team?",
-        "options": [
-          "Document the incident and proceed to the next task.",
-          "Hold a debriefing session to discuss the incident.",
-          "Immediately proceed to the next patient.",
-          "Take a break to recover from the incident."
+          "Discuss the next patient's case with your colleagues.",
+          "Provide compassionate care to the patient and family by being present, listening and offering comfort.",
+          "Start documenting the procedure in the patient's medical record.",
+          "Leave the room to give the family some privacy."
         ],
         "correct": 1,
-        "explanation": "After a critical incident, it's crucial to hold a debriefing session to discuss the incident, understand what happened, learn from the experience, and manage stress (Learning Objective 16)."
+        "explanation": "Providing compassionate care to the patient and their family members is a crucial part of a healthcare professional's duty, especially in sensitive situations like withdrawal of care. This matches learning objective 14."
+      },
+      {
+        "q": "You are a respiratory therapist called to perform an extubation for a patient who has been deemed ready for withdrawal of care. As you enter the patient's room, which of the following is the most appropriate first step?",
+        "options": [
+          "Ask the patient if they have any last wishes.",
+          "Start explaining the extubation process to the family members.",
+          "Immediately start preparing the tools necessary for extubation.",
+          "Introduce yourself by stating your name, occupation, and duty to the patient and family members."
+        ],
+        "correct": 3,
+        "explanation": "The first step for any patient interaction involves proper introduction, (name, occupation, duty) which helps in establishing trust and rapport with the patient and their family members. This corresponds to learning objective 13."
+      },
+      {
+        "q": "You are a respiratory therapist and have just completed an extubation as part of a withdrawal of care. How should you communicate with your team members about the patient's current status?",
+        "options": [
+          "Ensure closed-loop communication between team members.",
+          "Write a note in the patient's chart and assume all team members will read it.",
+          "Discuss the patient's status with each team member individually.",
+          "Send a text message to all team members."
+        ],
+        "correct": 0,
+        "explanation": "Closed-loop communication helps ensure everyone involved in the patient's care is informed and understands the patient's current status. This corresponds to learning objective 17."
+      },
+      {
+        "q": "As part of a debriefing session following a critical incident, what is most important for effective stress management among the team members?",
+        "options": [
+          "Provide individual counseling sessions to each team member.",
+          "Allow team members to vent their frustrations without any structure.",
+          "Assign blame to the person responsible for the incident.",
+          "Ensure closed-loop communication between team members during the debriefing."
+        ],
+        "correct": 3,
+        "explanation": "Closed-loop communication ensures that all team members are on the same page and helps in effective debriefing and stress management. This aligns with learning objective 16."
       }
     ],
     "Stage 4: Withdrawal of Care": [
       {
-        "q": "You are part of a team caring for a critically ill patient. During a complex procedure, another team member gives you an instruction. How should you respond to ensure closed-loop communication?",
+        "q": "After extubation of a patient, Mrs. Clark, you notice another healthcare provider, Dr. Scott, who assisted in the process appears shaken. What action should you take?",
         "options": [
-          "Ignore the instruction and continue with your current task.",
-          "Assume you understood the instruction and carry it out.",
-          "Tell your teammate that you are too busy to listen to the instruction.",
-          "Repeat the instruction back to the teammate to confirm understanding."
+          "Ignore Dr. Scott's emotional state and focus on the patient",
+          "Tell Dr. Scott to toughen up",
+          "Report Dr. Scott for being emotionally unfit",
+          "Suggest to Dr. Scott to take a break and offer to debrief about the incident"
         ],
         "correct": 3,
-        "explanation": "This question tests learning objective 23: Ensure closed-loop communication between team members. Repeating back the instruction confirms understanding and prevents miscommunication."
+        "explanation": "Learning objective 22 emphasizes the importance of critical incident stress management and debriefing, which includes acknowledging and addressing emotional responses in team members."
       },
       {
-        "q": "You are a respiratory therapist called to assist with the extubation of a patient in the ICU. The patient is a 67-year-old male who has been intubated for 5 days due to respiratory failure secondary to pneumonia. Before initiating the procedure, what should be your first action?",
+        "q": "You are a respiratory therapist entering the room of a patient, Mr. Smith, who is about to be extubated. Before you proceed with the process, what is the first thing you should do?",
         "options": [
-          "Introduce yourself to the patient and confirm his identity.",
-          "Administer sedation to the patient.",
-          "Immediately begin the extubation process.",
-          "Check the patient's latest chest X-ray results."
+          "Perform hand hygiene and ensure appropriate PPE",
+          "Check the patient's vital signs",
+          "Introduce yourself using the NOD method",
+          "Immediately proceed with the extubation"
         ],
         "correct": 0,
-        "explanation": "This question tests learning objective 19: Use NOD (name, occupation, duty) when first introducing self to patients and family members / confirm patient identity. Before any procedure, it is crucial to introduce oneself and confirm the patient's identity to prevent errors."
-      },
-      {
-        "q": "You are a respiratory therapist assisting with the withdrawal of care for a terminally ill patient. In preparation for the extubation, what is your first step?",
-        "options": [
-          "Administer an anesthetic to the patient without checking their vitals.",
-          "Perform hand hygiene and ensure appropriate Personal Protective Equipment.",
-          "Remove the endotracheal tube without any preparations.",
-          "Start comforting the family before any preparations."
-        ],
-        "correct": 1,
-        "explanation": "This question tests learning objective 18: Perform hand hygiene / ensure appropriate PPE. Before any procedure, it is crucial to ensure proper hand hygiene and PPE to prevent infections."
+        "explanation": "Learning objective 18 emphasizes the importance of performing hand hygiene and ensuring appropriate PPE before any patient interaction to ensure safety and infection control."
       }
     ]
   }
