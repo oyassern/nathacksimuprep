@@ -3,10 +3,10 @@ import styles from '../styles/styles';
 
 function StageSelection({ onSelect, onBack }) {
   const stages = [
-    'Stage 1 – OR Induction & Emergence',
-    'Stage 2 – Post-Op Cardiac Arrest (PALS)',
-    'Stage 3 – Withdrawal of Care',
-    'Stage 4 – Compassionate Extubation',
+    'Stage 1 - OR Induction & Emergence',
+    'Stage 2 - Post-Op Cardiac Arrest (PALS)',
+    'Stage 3 - Withdrawal of Care',
+    'Stage 4 - Compassionate Extubation',
   ];
 
   return (
